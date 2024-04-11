@@ -1,0 +1,22 @@
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 2rem;
+  padding: 2rem;
+}
+
+.error_message {
+  color: var(--bg-color);
+}
+
+.error_container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
