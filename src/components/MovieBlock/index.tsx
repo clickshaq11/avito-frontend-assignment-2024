@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MoviePreview } from '../../types/movie';
+import { MoviePreview } from '@/types/movie';
 import { section, row, link, title, img } from './block.module.css';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
