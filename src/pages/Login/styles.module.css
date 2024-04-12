@@ -1,0 +1,32 @@
+.box {
+  display: flex;
+  border-radius: 1rem;
+  flex-direction: column;
+  padding: 2rem;
+  width: 300px;
+  height: 200px;
+  background-color: var(--bg-color);
+  font-size: 20px;
+  row-gap: 0.5rem;
+}
+
+.wrapper {
+  height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  font-size: 16px;
+}
+
+.button {
+  font-size: 16px;
+}
+
+.error {
+  font-size: 10px;
+  color: red;
+}

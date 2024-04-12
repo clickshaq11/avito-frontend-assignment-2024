@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { register } from 'swiper/element/bundle';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { SimilarMovie } from '@/types/search';
@@ -14,6 +14,7 @@ register();
 
 function SimilarMovies({ similarMovies }: SimilarMoviesProps) {
   const swiperRef = useRef(null);
+  const [params] = useSearchParams();
 
   useEffect(() => {
     const swiperContainer = swiperRef.current;
@@ -49,7 +50,9 @@ function SimilarMovies({ similarMovies }: SimilarMoviesProps) {
             <div className={localStyles.movie}>
               <div className={localStyles.heading}>
                 <span className={localStyles.title}>{name}</span>
-                <Link to={`/movies/${id}`}>
+                <Link
+                  to={{ pathname: `/movies/${id}`, search: params.toString() }}
+                >
                   <OpenInNewIcon />
                 </Link>
               </div>

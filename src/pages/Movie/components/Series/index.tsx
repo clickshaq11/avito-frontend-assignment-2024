@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { axios } from '@/config/api';
-import { CircularProgress, Pagination } from '@mui/material';
+import { CircularProgress } from '@mui/material';
+import { SimpleTreeView } from '@mui/x-tree-view';
+import { Pagination } from '../shared/Pagination';
+import { MiniSeason } from './MiniSeason';
 import { GetSeriesByMovieId } from '@/types/search';
 import { ClientPaginationParams } from '@/types/pagination';
 import {
@@ -9,7 +12,7 @@ import {
   DEFAULT_PAGINATION_STATE,
 } from '../../shared/const';
 import styles from '../../styles.module.css';
-import { MiniSeason } from './MiniSeason';
+import localStyles from './styles.module.css';
 
 type SeriesProps = {
   movieId: number;
@@ -43,19 +46,19 @@ function Series({ movieId }: SeriesProps) {
           {isSuccess && seriesData.docs.length === 0 ? (
             <span>Нет информации о сезонах</span>
           ) : (
-            <>
-              <div className={styles.list}>
+            <div className={localStyles.list}>
+              <SimpleTreeView>
                 {seriesData.docs.map((season) => (
                   <MiniSeason key={season.number} {...season} />
                 ))}
-              </div>
+              </SimpleTreeView>
               <Pagination
                 page={seriesPagination.page}
                 onChange={(_, value) =>
                   setSeriesPagination((prev) => ({ ...prev, page: value }))
                 }
               />
-            </>
+            </div>
           )}
         </article>
       ) : (

@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { axios } from '@/config/api';
+import { CircularProgress } from '@mui/material';
+import { MiniReview } from './MiniReview';
+import { Pagination } from '../shared/Pagination';
 import { ClientPaginationParams } from '@/types/pagination';
 import { GetReviewsByMovieId } from '@/types/search';
 import {
@@ -9,8 +12,6 @@ import {
 } from '@/pages/Movie/shared/const';
 import styles from '../../styles.module.css';
 import localStyles from './styles.module.css';
-import { MiniReview } from './MiniReview';
-import { CircularProgress, Pagination } from '@mui/material';
 
 type ReviewsProps = {
   movieId: number;
@@ -20,7 +21,6 @@ function Reviews({ movieId }: ReviewsProps) {
   const [reviewsPagination, setReviewsPagination] =
     useState<ClientPaginationParams>(DEFAULT_PAGINATION_STATE);
 
-  // TODO: AXIOS ENDPOINT
   const { data: reviewsData, isSuccess } = useQuery<GetReviewsByMovieId>({
     queryFn: async ({ signal }) => {
       const { data } = await axios.get<GetReviewsByMovieId>(`review`, {
@@ -42,17 +42,18 @@ function Reviews({ movieId }: ReviewsProps) {
       {isSuccess ? (
         <article className={styles.article}>
           <h2 className={styles.section_name}>Отзывы о фильме</h2>
-          <div className={localStyles.list}>
-            {reviewsData.docs.map((review) => (
-              <MiniReview key={`${review.author}${review.date}`} {...review} />
-            ))}
-          </div>
           <Pagination
+            count={reviewsPagination.totalPages}
             page={reviewsPagination.page}
             onChange={(_, value) =>
               setReviewsPagination((prev) => ({ ...prev, page: value }))
             }
           />
+          <div className={localStyles.list}>
+            {reviewsData.docs.map((review) => (
+              <MiniReview key={`${review.author}${review.date}`} {...review} />
+            ))}
+          </div>
         </article>
       ) : (
         <CircularProgress />

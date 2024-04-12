@@ -1,0 +1,30 @@
+.header {
+  width: 100%;
+  background-color: #08243d;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
+.button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: var(--bg-color);
+  font-size: 50px;
+}
+
+.title {
+  color: var(--bg-color);
+  font-size: 28px;
+}
+
+.nav {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 2rem;
+  justify-content: flex-end;
+}

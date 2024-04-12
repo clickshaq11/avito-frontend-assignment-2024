@@ -46,6 +46,7 @@ type GetMovieByIdResponse = {
 type Actor = {
   id: number;
   name: string;
+  enName: string;
   photo: string;
 };
 
@@ -86,6 +87,7 @@ type GetReviewsByMovieId = PaginationParams & {
 };
 
 export type {
+  PaginationParams,
   SearchParams,
   GetMoviesResponse,
   GetMovieByIdResponse,
