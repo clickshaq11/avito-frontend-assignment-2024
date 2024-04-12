@@ -1,0 +1,21 @@
+.box {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  background-color: hsl(from var(--bg-color) h s l / 50%);
+}
+
+.cn_name {
+  width: 100%;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cn_photo {
+  object-fit: cover;
+  width: 150px;
+  border-radius: 8px;
+}

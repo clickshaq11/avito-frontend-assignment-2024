@@ -20,7 +20,7 @@ const axiosV1 = axiosDefaultInstance.create({
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: true,
+      refetchOnWindowFocus: false,
       refetchOnMount: true,
       refetchOnReconnect: true,
       retry: 3,

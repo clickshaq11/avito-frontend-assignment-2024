@@ -1,0 +1,14 @@
+.movie_cn {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+}
+
+.carousel {
+  width: 100%;
+}
+
+.img {
+  object-fit: cover;
+  height: 250px;
+}
