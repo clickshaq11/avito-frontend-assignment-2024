@@ -8,7 +8,7 @@ import {
   DEFAULT_PAGINATION_LIMIT,
   DEFAULT_PAGINATION_STATE,
 } from '../../shared/const';
-import { list, article } from '../../movie.module.css';
+import styles from '../../styles.module.css';
 import { MiniSeason } from './MiniSeason';
 
 type SeriesProps = {
@@ -38,13 +38,13 @@ function Series({ movieId }: SeriesProps) {
   return (
     <>
       {isSuccess ? (
-        <article className={article}>
+        <article className={styles.article}>
           <h2>Сезоны и серии</h2>
           {isSuccess && seriesData.docs.length === 0 ? (
             <span>Нет информации о сезонах</span>
           ) : (
             <>
-              <div className={list}>
+              <div className={styles.list}>
                 {seriesData.docs.map((season) => (
                   <MiniSeason key={season.number} {...season} />
                 ))}

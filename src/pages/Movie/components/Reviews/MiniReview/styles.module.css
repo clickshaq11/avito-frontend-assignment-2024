@@ -1,0 +1,14 @@
+.block {
+}
+
+.positive {
+  background-color: rgba(59, 179, 59, 0.1);
+}
+
+.neutral {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.negative {
+  background-color: rgba(255, 0, 0, 0.1);
+}

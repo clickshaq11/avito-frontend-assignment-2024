@@ -5,7 +5,7 @@ import { GetActorsByMovieId } from '@/types/search';
 import { ClientPaginationParams } from '@/types/pagination';
 import { CircularProgress, Pagination } from '@mui/material';
 import { MiniActor } from './MiniActor';
-import { list, section_name, article } from '@/movie.module.css';
+import styles from '../../styles.module.css';
 import {
   DEFAULT_PAGINATION_LIMIT,
   DEFAULT_PAGINATION_STATE,
@@ -38,9 +38,9 @@ function Actors({ movieId }: ActorsProps) {
   return (
     <>
       {isSuccess ? (
-        <article className={article}>
-          <h2 className={section_name}>Актёры</h2>
-          <div className={list}>
+        <article className={styles.article}>
+          <h2 className={styles.section_name}>Актёры</h2>
+          <div className={styles.list}>
             {actorsData.docs
               ?.filter((actor) => actor.name)
               .map((actor) => <MiniActor key={actor.id} {...actor} />)}

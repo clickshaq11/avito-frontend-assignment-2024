@@ -4,19 +4,11 @@ import { axios } from '@/config/api';
 import CircularProgress from '@mui/material/CircularProgress';
 import Rating from '@mui/material/Rating';
 import { GetMovieByIdResponse } from '@/types/search';
-import {
-  title,
-  desc,
-  text,
-  ratings,
-  poster_img,
-  grid,
-  container,
-} from './movie.module.css';
 import { Actors } from './components/Actors';
 import { Series } from './components/Series';
 import { Reviews } from './components/Reviews';
 import { SimilarMovies } from './components/SimilarMovies';
+import styles from './styles.module.css';
 
 function Movie() {
   const { movieId } = useParams();
@@ -44,22 +36,22 @@ function Movie() {
   const { name, description, rating, poster } = movieData;
 
   return (
-    <div className={container}>
-      <div className={grid}>
+    <div className={styles.container}>
+      <div className={styles.grid}>
         <div>
-          <h1 className={title}>{name}</h1>
-          <p className={desc}>{description}</p>
+          <h1 className={styles.title}>{name}</h1>
+          <p className={styles.desc}>{description}</p>
         </div>
         <img
           src={poster.url}
           alt={`Постер к фильму ${name}`}
-          className={poster_img}
+          className={styles.poster_img}
         />
       </div>
-      <div className={ratings}>
-        <span className={text}>Рейтинг на кинопоиске</span>
+      <div className={styles.ratings}>
+        <span className={styles.text}>Рейтинг на кинопоиске</span>
         <Rating value={rating.kp} readOnly max={10} />
-        <span className={text}>Рейтинг на IMDB</span>
+        <span className={styles.text}>Рейтинг на IMDB</span>
         <Rating value={rating.imdb} readOnly max={10} />
       </div>
       <Actors movieId={parseInt(movieId)} />

@@ -71,8 +71,11 @@ type GetSeriesByMovieId = PaginationParams & {
   docs: Season[];
 };
 
+type ReviewType = 'Позитивный' | 'Нейтральный' | 'Негативный';
+
 type Review = {
   author: string;
+  type: ReviewType;
   title: string;
   review: string;
   date: string;
@@ -92,5 +95,6 @@ export type {
   Season,
   GetReviewsByMovieId,
   Review,
+  ReviewType,
   SimilarMovie,
 };

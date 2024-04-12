@@ -6,7 +6,7 @@ import { LimitSelect } from './Selectors/LimitSelect';
 import { Search } from './Selectors/Search';
 import type { SearchParams } from '@/types/search';
 import type { PossibleCountriesResponse } from '@/types/fields';
-import { filters_container, controls } from './filters.module.css';
+import styles from './styles.module.css';
 
 type FiltersProps = {
   searchParams: URLSearchParams;
@@ -22,12 +22,12 @@ function Filters({
   totalPages,
 }: FiltersProps) {
   return (
-    <div className={controls}>
+    <div className={styles.controls}>
       <Search
         searchParams={searchParams}
         updateSearchParams={updateSearchParams}
       />
-      <div className={filters_container}>
+      <div className={styles.filters_container}>
         <LimitSelect
           searchParams={searchParams}
           updateSearchParams={updateSearchParams}

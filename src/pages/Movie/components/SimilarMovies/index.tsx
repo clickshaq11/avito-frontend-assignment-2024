@@ -1,5 +1,5 @@
 import { SimilarMovie } from '@/types/search';
-import { movie_cn, carousel, img } from './movies.module.css';
+import styles from './styles.module.css';
 
 type SimilarMoviesProps = {
   similarMovies: SimilarMovie[];
@@ -7,11 +7,11 @@ type SimilarMoviesProps = {
 
 function SimilarMovies({ similarMovies }: SimilarMoviesProps) {
   return (
-    <div className={carousel}>
+    <div className={styles.carousel}>
       {similarMovies.map(({ name, poster: { previewUrl } }) => (
-        <div key={previewUrl} className={movie_cn}>
+        <div key={previewUrl} className={styles.movie}>
           <span>{name}</span>
-          <img src={previewUrl} alt="Превью" className={img} />
+          <img src={previewUrl} alt="Превью" className={styles.img} />
         </div>
       ))}
     </div>

@@ -8,7 +8,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { MovieBlock } from '@/components/MovieBlock';
 import type { GetMoviesResponse, SearchParams } from '@/types/search';
 import type { PossibleCountriesResponse } from '@/types/fields';
-import { grid, error_message, error_container } from './movies.module.css';
+import styles from './styles.module.css';
 
 const defaultSearchParamsValue: Record<SearchParams, string> = {
   query: '',
@@ -110,8 +110,8 @@ function Movies() {
 
   if (isGetMoviesError || isPossibleCountriesError) {
     return (
-      <div className={error_container}>
-        <p className={error_message}>
+      <div className={styles.error_container}>
+        <p className={styles.error_message}>
           При запросе произошла ошибка. Повторите попытку.
         </p>
         <button onClick={refetch}>
@@ -130,9 +130,9 @@ function Movies() {
         countriesPossibleValues={countriesPossibleValues}
       />
       {isGetMoviesSuccess ? (
-        <div className={grid}>
+        <div className={styles.grid}>
           {noMoviesFound ? (
-            <p className={error_message}>
+            <p className={styles.error_message}>
               Фильмов по такому запросу не найдено. Попробуйте изменить фильтры
             </p>
           ) : (

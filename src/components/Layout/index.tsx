@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router';
-import { main } from './layout.module.css';
+import styles from './styles.module.css';
 
 function Layout() {
   return (
-    <main className={main}>
+    <main className={styles.main}>
       <Outlet />
     </main>
   );

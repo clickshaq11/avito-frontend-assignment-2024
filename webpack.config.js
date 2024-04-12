@@ -1,6 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
+
+const devMode = process.env.NODE_ENV !== 'production';
+const cssLoader = devMode
+  ? { loader: 'style-loader' }
+  : { loader: MiniCssExtractPlugin.loader };
 
 module.exports = {
   entry: './src/index.tsx',
@@ -30,31 +36,34 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+          options: {
+            presets: [['@babel/preset-react', { targets: 'defaults' }]],
+          },
         },
       },
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [
-          'style-loader',
+          cssLoader,
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1,
-              modules: true,
+              modules: {
+                mode: 'local',
+                auto: true,
+                exportGlobals: false,
+                namedExport: false,
+                exportLocalsConvention: 'as-is',
+                exportOnlyLocals: false,
+              },
             },
           },
         ],
-        include: /\.module\.css$/,
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-        exclude: /\.module\.css$/,
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', 'css'],
+    extensions: ['.tsx', '.ts', '.js', '.css'],
     alias: {
       '@': path.resolve(__dirname, './src/'),
     },

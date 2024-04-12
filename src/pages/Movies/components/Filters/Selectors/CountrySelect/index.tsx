@@ -2,7 +2,7 @@ import { useId } from 'react';
 import { MenuItem, Select } from '@mui/material';
 import { Input } from '@/components/Input';
 import { Switch } from '@/components/Switch';
-import { label, limit, label_container } from '../../filters.module.css';
+import styles from '../../styles.module.css';
 import type { FiltersProps } from '../..';
 
 type CountrySelectProps = Pick<
@@ -17,8 +17,8 @@ function CountrySelect({
 }: CountrySelectProps) {
   const id = useId();
   return (
-    <div className={label_container}>
-      <label htmlFor={id} className={label}>
+    <div className={styles.label_container}>
+      <label htmlFor={id} className={styles.label}>
         Страна
       </label>
       <Switch
@@ -29,7 +29,7 @@ function CountrySelect({
       />
       <Select
         id={id}
-        className={limit}
+        className={styles.limit}
         value={searchParams.get('countries.name')}
         onChange={(e) => updateSearchParams('countries.name', e.target.value)}
         input={<Input />}

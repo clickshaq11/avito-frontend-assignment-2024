@@ -4,7 +4,7 @@ import { MenuItem, Select } from '@mui/material';
 import { Input } from '@/components/Input';
 import { Switch } from '@/components/Switch';
 import type { FiltersProps } from '../..';
-import { label, limit, label_container } from '../../filters.module.css';
+import styles from '../../styles.module.css';
 
 type YearSelectProps = Pick<
   FiltersProps,
@@ -14,8 +14,8 @@ type YearSelectProps = Pick<
 function YearSelect({ searchParams, updateSearchParams }: YearSelectProps) {
   const id = useId();
   return (
-    <div className={label_container}>
-      <label htmlFor={id} className={label}>
+    <div className={styles.label_container}>
+      <label htmlFor={id} className={styles.label}>
         Год
       </label>
       <Switch
@@ -26,7 +26,7 @@ function YearSelect({ searchParams, updateSearchParams }: YearSelectProps) {
       />
       <Select
         id={id}
-        className={limit}
+        className={styles.limit}
         value={searchParams.get('year')}
         onChange={(e) => updateSearchParams('year', e.target.value)}
         input={<Input />}

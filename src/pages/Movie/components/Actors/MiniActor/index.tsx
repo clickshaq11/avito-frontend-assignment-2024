@@ -1,11 +1,11 @@
 import { Actor } from '@/types/search';
-import { box, cn_name, cn_photo } from './actor.module.css';
+import styles from './styles.module.css';
 
 function MiniActor({ name, photo }: Actor) {
   return (
-    <section className={box}>
-      <span className={cn_name}>{name}</span>
-      <img src={photo} alt={`Фотография ${name}`} className={cn_photo} />
+    <section className={styles.box}>
+      <span className={styles.cn_name}>{name}</span>
+      <img src={photo} alt={`Фотография ${name}`} className={styles.cn_photo} />
     </section>
   );
 }

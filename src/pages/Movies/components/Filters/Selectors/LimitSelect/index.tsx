@@ -1,7 +1,7 @@
 import { ChangeEvent, useId } from 'react';
 import { MenuItem, Select } from '@mui/material';
 import { Input } from '@/components/Input';
-import { label, limit, label_container } from '../../filters.module.css';
+import styles from '../../styles.module.css';
 import { FiltersProps } from '../..';
 
 type LimitSelectProps = Pick<
@@ -18,13 +18,13 @@ function LimitSelect({ searchParams, updateSearchParams }: LimitSelectProps) {
   };
 
   return (
-    <div className={label_container}>
-      <label htmlFor={id} className={label}>
+    <div className={styles.label_container}>
+      <label htmlFor={id} className={styles.label}>
         Количество фильмов на странице
       </label>
       <Select
         id={id}
-        className={limit}
+        className={styles.limit}
         value={searchParams.get('limit')}
         onChange={onChange}
         input={<Input />}
