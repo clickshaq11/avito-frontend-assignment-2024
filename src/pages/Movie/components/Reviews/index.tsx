@@ -8,6 +8,7 @@ import {
   DEFAULT_PAGINATION_STATE,
 } from '@/pages/Movie/shared/const';
 import styles from '../../styles.module.css';
+import localStyles from './styles.module.css';
 import { MiniReview } from './MiniReview';
 import { CircularProgress, Pagination } from '@mui/material';
 
@@ -41,7 +42,7 @@ function Reviews({ movieId }: ReviewsProps) {
       {isSuccess ? (
         <article className={styles.article}>
           <h2 className={styles.section_name}>Отзывы о фильме</h2>
-          <div className={styles.list}>
+          <div className={localStyles.list}>
             {reviewsData.docs.map((review) => (
               <MiniReview key={`${review.author}${review.date}`} {...review} />
             ))}

@@ -1,14 +1,28 @@
 .movie {
+  width: 250px;
   display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
+  flex-direction: column;
 }
 
-.carousel {
+.container {
   width: 100%;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title {
+  width: 100%;
+  padding: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .img {
   object-fit: cover;
-  height: 250px;
+  width: 250px;
 }

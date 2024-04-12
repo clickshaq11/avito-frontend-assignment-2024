@@ -9,6 +9,7 @@ import { Series } from './components/Series';
 import { Reviews } from './components/Reviews';
 import { SimilarMovies } from './components/SimilarMovies';
 import styles from './styles.module.css';
+import { Ratings } from './components/Ratings';
 
 function Movie() {
   const { movieId } = useParams();
@@ -38,7 +39,7 @@ function Movie() {
   return (
     <div className={styles.container}>
       <div className={styles.grid}>
-        <div>
+        <div className={styles.textblock}>
           <h1 className={styles.title}>{name}</h1>
           <p className={styles.desc}>{description}</p>
         </div>
@@ -48,16 +49,11 @@ function Movie() {
           className={styles.poster_img}
         />
       </div>
-      <div className={styles.ratings}>
-        <span className={styles.text}>Рейтинг на кинопоиске</span>
-        <Rating value={rating.kp} readOnly max={10} />
-        <span className={styles.text}>Рейтинг на IMDB</span>
-        <Rating value={rating.imdb} readOnly max={10} />
-      </div>
+      <Ratings rating={rating} />
       <Actors movieId={parseInt(movieId)} />
       <Series movieId={parseInt(movieId)} />
-      <Reviews movieId={parseInt(movieId)} />
       <SimilarMovies similarMovies={movieData.similarMovies} />
+      <Reviews movieId={parseInt(movieId)} />
     </div>
   );
 }

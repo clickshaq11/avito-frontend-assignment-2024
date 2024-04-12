@@ -5,7 +5,7 @@ import { routes } from '@/config/routes';
 import { queryClient } from '@/config/api';
 
 import './styles/global.css';
-import 'react-multi-carousel/lib/styles.css';
+import 'swiper/css';
 
 const router = createBrowserRouter(routes);
 
