@@ -1,11 +1,11 @@
-import { Pagination } from '../../../../components/Pagination';
-import { SearchParams } from '../../../../types/search';
-import { PossibleCountriesResponse } from '../../../../types/fields';
+import { Pagination } from '@/components/Pagination';
 import { AgeSelect } from './Selectors/AgeSelect';
 import { YearSelect } from './Selectors/YearSelect';
 import { CountrySelect } from './Selectors/CountrySelect';
 import { LimitSelect } from './Selectors/LimitSelect';
 import { Search } from './Selectors/Search';
+import type { SearchParams } from '@/types/search';
+import type { PossibleCountriesResponse } from '@/types/fields';
 import { filters_container, controls } from './filters.module.css';
 
 type FiltersProps = {

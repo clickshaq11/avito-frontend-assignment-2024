@@ -1,6 +1,6 @@
 import { Pagination as MuiPagination, PaginationItem } from '@mui/material';
 import { ComponentProps } from 'react';
-import { FiltersProps } from '../../pages/Movies/components/Filters';
+import { FiltersProps } from '@/pages/Movies/components/Filters';
 
 type PaginationProps = ComponentProps<typeof MuiPagination> &
   Pick<FiltersProps, 'searchParams' | 'updateSearchParams'>;

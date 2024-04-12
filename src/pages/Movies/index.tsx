@@ -1,14 +1,14 @@
-import { axios, axiosV1 } from '../../config/api';
 import { useQuery } from 'react-query';
 import { useSearchParams } from 'react-router-dom';
-import { useDebounce } from '../../hooks/useDebounce';
-import { MovieBlock } from '../../components/MovieBlock';
-import { GetMoviesResponse, SearchParams } from '../../types/search';
-import { grid, error_message, error_container } from './movies.module.css';
+import { useDebounce } from '@/hooks/useDebounce';
 import { Filters } from './components/Filters';
-import { PossibleCountriesResponse } from '../../types/fields';
-import CircularProgress from '@mui/material/CircularProgress';
+import { axios, axiosV1 } from '@/config/api';
 import ReplayIcon from '@mui/icons-material/Replay';
+import CircularProgress from '@mui/material/CircularProgress';
+import { MovieBlock } from '@/components/MovieBlock';
+import type { GetMoviesResponse, SearchParams } from '@/types/search';
+import type { PossibleCountriesResponse } from '@/types/fields';
+import { grid, error_message, error_container } from './movies.module.css';
 
 const defaultSearchParamsValue: Record<SearchParams, string> = {
   query: '',

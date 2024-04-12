@@ -1,4 +1,4 @@
-import { Season } from '../../../../../types/search';
+import { Season } from '@/types/search';
 
 function MiniSeason({ name, episodes, episodesCount }: Season) {
   return (

@@ -1,10 +1,10 @@
-import { MenuItem, Select } from '@mui/material';
-import { FiltersProps } from '../..';
-import { label, limit, label_container } from '../../filters.module.css';
-import { generateYearSelect } from '../../../../../../utils/generateYearSelect';
 import { useId } from 'react';
-import { Input } from '../../../../../../components/Input';
-import { Switch } from '../../../../../../components/Switch';
+import { generateYearSelect } from '@/utils/generateYearSelect';
+import { MenuItem, Select } from '@mui/material';
+import { Input } from '@/components/Input';
+import { Switch } from '@/components/Switch';
+import type { FiltersProps } from '../..';
+import { label, limit, label_container } from '../../filters.module.css';
 
 type YearSelectProps = Pick<
   FiltersProps,

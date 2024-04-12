@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router';
-import { Layout } from '../components/Layout';
-import { Movie } from '../pages/Movie';
-import { Movies } from '../pages/Movies';
+import { Layout } from '@/components/Layout';
+import { Movie } from '@/pages/Movie';
+import { Movies } from '@/pages/Movies';
 
 const routes = [
   {

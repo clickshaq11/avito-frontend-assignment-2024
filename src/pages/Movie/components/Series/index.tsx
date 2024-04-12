@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
-import { GetSeriesByMovieId } from '../../../../types/search';
-import { axios } from '../../../../config/api';
+import { axios } from '@/config/api';
+import { CircularProgress, Pagination } from '@mui/material';
+import { GetSeriesByMovieId } from '@/types/search';
+import { ClientPaginationParams } from '@/types/pagination';
 import {
   DEFAULT_PAGINATION_LIMIT,
   DEFAULT_PAGINATION_STATE,
 } from '../../shared/const';
-import { ClientPaginationParams } from '../../../../types/pagination';
-import { CircularProgress, Pagination } from '@mui/material';
-import { list, section_name, article } from '../../movie.module.css';
+import { list, article } from '../../movie.module.css';
 import { MiniSeason } from './MiniSeason';
 
 type SeriesProps = {

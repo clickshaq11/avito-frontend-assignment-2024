@@ -1,6 +1,5 @@
 import { ComponentProps } from 'react';
 import { InputBase as MuiInput } from '@mui/material';
-import { input } from './input.module.css';
 
 type InputProps = ComponentProps<typeof MuiInput>;
 

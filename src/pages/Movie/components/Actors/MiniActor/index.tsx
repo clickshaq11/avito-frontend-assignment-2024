@@ -1,4 +1,4 @@
-import { Actor } from '../../../../../types/search';
+import { Actor } from '@/types/search';
 import { box, cn_name, cn_photo } from './actor.module.css';
 
 function MiniActor({ name, photo }: Actor) {

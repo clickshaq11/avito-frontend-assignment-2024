@@ -1,6 +1,8 @@
 import { useParams } from 'react-router';
 import { useQuery } from 'react-query';
 import { axios } from '@/config/api';
+import CircularProgress from '@mui/material/CircularProgress';
+import Rating from '@mui/material/Rating';
 import { GetMovieByIdResponse } from '@/types/search';
 import {
   title,
@@ -11,8 +13,6 @@ import {
   grid,
   container,
 } from './movie.module.css';
-import CircularProgress from '@mui/material/CircularProgress';
-import Rating from '@mui/material/Rating';
 import { Actors } from './components/Actors';
 import { Series } from './components/Series';
 import { Reviews } from './components/Reviews';

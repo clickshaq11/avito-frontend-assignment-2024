@@ -1,9 +1,9 @@
 import { useId } from 'react';
-import { label, limit, label_container } from '../../filters.module.css';
-import { FiltersProps } from '../..';
 import { MenuItem, Select } from '@mui/material';
-import { Input } from '../../../../../../components/Input';
-import { Switch } from '../../../../../../components/Switch';
+import { Input } from '@/components/Input';
+import { Switch } from '@/components/Switch';
+import { label, limit, label_container } from '../../filters.module.css';
+import type { FiltersProps } from '../..';
 
 type CountrySelectProps = Pick<
   FiltersProps,

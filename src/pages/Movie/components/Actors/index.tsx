@@ -1,15 +1,15 @@
-import { useQuery } from 'react-query';
-import { GetActorsByMovieId } from '../../../../types/search';
 import { useState } from 'react';
-import { ClientPaginationParams } from '../../../../types/pagination';
+import { useQuery } from 'react-query';
+import { axios } from '@/config/api';
+import { GetActorsByMovieId } from '@/types/search';
+import { ClientPaginationParams } from '@/types/pagination';
 import { CircularProgress, Pagination } from '@mui/material';
 import { MiniActor } from './MiniActor';
-import { list, section_name, article } from '../../movie.module.css';
+import { list, section_name, article } from '@/movie.module.css';
 import {
   DEFAULT_PAGINATION_LIMIT,
   DEFAULT_PAGINATION_STATE,
-} from '../../shared/const';
-import { axios } from '../../../../config/api';
+} from '@/pages/Movie/shared/const';
 
 type ActorsProps = {
   movieId: number;

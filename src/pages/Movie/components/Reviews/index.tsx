@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
-import { axios } from '../../../../config/api';
-import { ClientPaginationParams } from '../../../../types/pagination';
+import { axios } from '@/config/api';
+import { ClientPaginationParams } from '@/types/pagination';
+import { GetReviewsByMovieId } from '@/types/search';
 import {
   DEFAULT_PAGINATION_LIMIT,
   DEFAULT_PAGINATION_STATE,
-} from '../../shared/const';
+} from '@/pages/Movie/shared/const';
 import { list, section_name, article } from '../../movie.module.css';
-import { GetReviewsByMovieId } from '../../../../types/search';
 import { MiniReview } from './MiniReview';
 import { CircularProgress, Pagination } from '@mui/material';
 
