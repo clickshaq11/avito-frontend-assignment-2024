@@ -1,5 +1,3 @@
-function generateAgeSelect() {
-  return ['6', '12', '18'];
-}
+const AGE_SELECT = ['6', '12', '18'];
 
-export { generateAgeSelect };
+export { AGE_SELECT };

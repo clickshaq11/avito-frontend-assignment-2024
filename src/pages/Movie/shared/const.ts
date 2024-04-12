@@ -1,4 +1,4 @@
-import { ClientPaginationParams } from '../../../types/pagination';
+import { ClientPaginationParams } from '@/types/pagination';
 
 const DEFAULT_PAGINATION_STATE: ClientPaginationParams = {
   page: 1,

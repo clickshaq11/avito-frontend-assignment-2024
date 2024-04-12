@@ -1,7 +1,10 @@
 import { Navigate } from 'react-router';
-import { Layout } from '../components/Layout';
-import { Movie } from '../pages/Movie';
-import { Movies } from '../pages/Movies';
+import { Layout } from '@/components/Layout';
+import { Movie } from '@/pages/Movie';
+import { Movies } from '@/pages/Movies';
+import { Login } from '@/pages/Login';
+import { Random } from '@/pages/Random';
+import { AuthLayout } from '@/components/AuthLayout';
 
 const routes = [
   {
@@ -15,6 +18,20 @@ const routes = [
       {
         path: ':movieId',
         element: <Movie />,
+      },
+    ],
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '',
+    element: <AuthLayout />,
+    children: [
+      {
+        path: '/random',
+        element: <Random />,
       },
     ],
   },

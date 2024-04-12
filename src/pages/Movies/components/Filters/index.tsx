@@ -1,12 +1,12 @@
-import { Pagination } from '../../../../components/Pagination';
-import { SearchParams } from '../../../../types/search';
-import { PossibleCountriesResponse } from '../../../../types/fields';
+import { Pagination } from '@/components/Pagination';
 import { AgeSelect } from './Selectors/AgeSelect';
 import { YearSelect } from './Selectors/YearSelect';
 import { CountrySelect } from './Selectors/CountrySelect';
 import { LimitSelect } from './Selectors/LimitSelect';
 import { Search } from './Selectors/Search';
-import { filters_container, controls } from './filters.module.css';
+import type { SearchParams } from '@/types/search';
+import type { PossibleCountriesResponse } from '@/types/fields';
+import styles from './styles.module.css';
 
 type FiltersProps = {
   searchParams: URLSearchParams;
@@ -22,12 +22,12 @@ function Filters({
   totalPages,
 }: FiltersProps) {
   return (
-    <div className={controls}>
+    <div className={styles.controls}>
       <Search
         searchParams={searchParams}
         updateSearchParams={updateSearchParams}
       />
-      <div className={filters_container}>
+      <div className={styles.filters_container}>
         <LimitSelect
           searchParams={searchParams}
           updateSearchParams={updateSearchParams}

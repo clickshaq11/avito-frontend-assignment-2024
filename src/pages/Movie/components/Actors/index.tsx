@@ -1,15 +1,16 @@
-import { useQuery } from 'react-query';
-import { GetActorsByMovieId } from '../../../../types/search';
 import { useState } from 'react';
-import { ClientPaginationParams } from '../../../../types/pagination';
-import { CircularProgress, Pagination } from '@mui/material';
+import { useQuery } from 'react-query';
+import { axios } from '@/config/api';
+import { GetActorsByMovieId } from '@/types/search';
+import { ClientPaginationParams } from '@/types/pagination';
+import { CircularProgress } from '@mui/material';
 import { MiniActor } from './MiniActor';
-import { list, section_name, article } from '../../movie.module.css';
+import styles from '../../styles.module.css';
 import {
   DEFAULT_PAGINATION_LIMIT,
   DEFAULT_PAGINATION_STATE,
-} from '../../shared/const';
-import { axios } from '../../../../config/api';
+} from '@/pages/Movie/shared/const';
+import { Pagination } from '../shared/Pagination';
 
 type ActorsProps = {
   movieId: number;
@@ -38,14 +39,15 @@ function Actors({ movieId }: ActorsProps) {
   return (
     <>
       {isSuccess ? (
-        <article className={article}>
-          <h2 className={section_name}>Актёры</h2>
-          <div className={list}>
+        <article className={styles.article}>
+          <h2 className={styles.section_name}>Актёры</h2>
+          <div className={styles.list}>
             {actorsData.docs
-              ?.filter((actor) => actor.name)
+              ?.filter((actor) => actor.name || actor.enName)
               .map((actor) => <MiniActor key={actor.id} {...actor} />)}
           </div>
           <Pagination
+            count={actorsData.pages}
             page={actorsPagination.page}
             onChange={(_, value) =>
               setActorsPagination((prev) => ({ ...prev, page: value }))

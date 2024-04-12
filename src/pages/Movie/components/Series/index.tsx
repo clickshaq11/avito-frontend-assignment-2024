@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
-import { GetSeriesByMovieId } from '../../../../types/search';
-import { axios } from '../../../../config/api';
+import { axios } from '@/config/api';
+import { CircularProgress } from '@mui/material';
+import { SimpleTreeView } from '@mui/x-tree-view';
+import { Pagination } from '../shared/Pagination';
+import { MiniSeason } from './MiniSeason';
+import { GetSeriesByMovieId } from '@/types/search';
+import { ClientPaginationParams } from '@/types/pagination';
 import {
   DEFAULT_PAGINATION_LIMIT,
   DEFAULT_PAGINATION_STATE,
 } from '../../shared/const';
-import { ClientPaginationParams } from '../../../../types/pagination';
-import { CircularProgress, Pagination } from '@mui/material';
-import { list, section_name, article } from '../../movie.module.css';
-import { MiniSeason } from './MiniSeason';
+import styles from '../../styles.module.css';
+import localStyles from './styles.module.css';
 
 type SeriesProps = {
   movieId: number;
@@ -38,24 +41,24 @@ function Series({ movieId }: SeriesProps) {
   return (
     <>
       {isSuccess ? (
-        <article className={article}>
+        <article className={styles.article}>
           <h2>Сезоны и серии</h2>
           {isSuccess && seriesData.docs.length === 0 ? (
             <span>Нет информации о сезонах</span>
           ) : (
-            <>
-              <div className={list}>
+            <div className={localStyles.list}>
+              <SimpleTreeView>
                 {seriesData.docs.map((season) => (
                   <MiniSeason key={season.number} {...season} />
                 ))}
-              </div>
+              </SimpleTreeView>
               <Pagination
                 page={seriesPagination.page}
                 onChange={(_, value) =>
                   setSeriesPagination((prev) => ({ ...prev, page: value }))
                 }
               />
-            </>
+            </div>
           )}
         </article>
       ) : (

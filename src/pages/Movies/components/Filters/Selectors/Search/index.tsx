@@ -1,7 +1,7 @@
 import { InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { FiltersProps } from '../..';
-import { search } from '../../filters.module.css';
+import styles from '../../styles.module.css';
 
 type SearchSelectProps = Pick<
   FiltersProps,
@@ -23,7 +23,7 @@ function Search({ searchParams, updateSearchParams }: SearchSelectProps) {
           </InputAdornment>
         ),
       }}
-      className={search}
+      className={styles.search}
     />
   );
 }

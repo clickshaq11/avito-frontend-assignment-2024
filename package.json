@@ -20,6 +20,7 @@
     "css-loader": "^7.0.0",
     "eslint": "^9.0.0",
     "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.8.1",
     "prettier": "3.2.5",
     "sass": "^1.74.1",
     "sass-loader": "^14.1.1",
@@ -37,12 +38,14 @@
     "@fontsource/roboto": "^5.0.12",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
+    "@mui/x-tree-view": "^7.2.0",
     "axios": "^1.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-multi-carousel": "^2.8.5",
     "react-query": "^3.39.3",
     "react-router": "^6.22.3",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "swiper": "^11.1.1"
   }
 }

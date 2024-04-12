@@ -1,0 +1,46 @@
+.block {
+  max-width: 600px;
+  width: 100%;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(31, 31, 31, 0.1);
+  padding: 1rem;
+}
+
+.textblock {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.author {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.review {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.positive {
+  background-color: rgba(59, 179, 59, 0.1);
+}
+
+.neutral {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.negative {
+  background-color: rgba(255, 0, 0, 0.1);
+}

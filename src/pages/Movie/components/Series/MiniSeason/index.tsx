@@ -1,17 +1,13 @@
-import { Season } from '../../../../../types/search';
+import { TreeItem } from '@mui/x-tree-view/TreeItem';
+import { Season } from '@/types/search';
 
 function MiniSeason({ name, episodes, episodesCount }: Season) {
   return (
-    <div>
-      <span>
-        {name} ({episodesCount} серий)
-      </span>
-      <ul>
-        {episodes.map(({ name, date, description }) => (
-          <li key={name}>{name}</li>
-        ))}
-      </ul>
-    </div>
+    <TreeItem label={`${name} (${episodesCount} серий)`} itemId={name}>
+      {episodes.map(({ name, date, description }) => (
+        <TreeItem key={name} itemId={name} label={`${name}`} />
+      ))}
+    </TreeItem>
   );
 }
 

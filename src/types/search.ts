@@ -46,6 +46,7 @@ type GetMovieByIdResponse = {
 type Actor = {
   id: number;
   name: string;
+  enName: string;
   photo: string;
 };
 
@@ -71,8 +72,11 @@ type GetSeriesByMovieId = PaginationParams & {
   docs: Season[];
 };
 
+type ReviewType = 'Позитивный' | 'Нейтральный' | 'Негативный';
+
 type Review = {
   author: string;
+  type: ReviewType;
   title: string;
   review: string;
   date: string;
@@ -83,6 +87,7 @@ type GetReviewsByMovieId = PaginationParams & {
 };
 
 export type {
+  PaginationParams,
   SearchParams,
   GetMoviesResponse,
   GetMovieByIdResponse,
@@ -92,5 +97,6 @@ export type {
   Season,
   GetReviewsByMovieId,
   Review,
+  ReviewType,
   SimilarMovie,
 };
