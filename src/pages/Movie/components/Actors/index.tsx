@@ -28,6 +28,7 @@ function Actors({ movieId }: ActorsProps) {
           page: actorsPagination.page,
           limit: DEFAULT_PAGINATION_LIMIT,
           'movies.id': movieId,
+          'profession.value': 'Актер',
         },
       });
 
