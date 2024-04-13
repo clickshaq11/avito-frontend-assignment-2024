@@ -4,6 +4,8 @@
 
 ## Запуск
 
+Замените \<TOKEN\> на токен
+
 ### Локально
 
 ```bash
@@ -14,8 +16,8 @@ token=<TOKEN> npm run start
 ### Docker
 
 ```bash
-docker build -t frontend-assignment .
-docker run -dp 127.0.0.1:80 frontend-assignment
+docker build -t frontend-assignment --build-arg TOKEN=<TOKEN> .
+docker run -dp 7070:80 frontend-assignment
 ```
 
 ## Выполненные функциональные требования

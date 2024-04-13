@@ -1,5 +1,6 @@
 FROM node:21-alpine AS build
 
+ARG TOKEN
 WORKDIR /usr/app/frontend
 
 COPY package.json .
