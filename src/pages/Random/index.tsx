@@ -62,8 +62,6 @@ function Random() {
         params.append('countries.name', country);
       }
 
-      console.log(params);
-
       const { data } = await axios.get<GetMovieByIdResponse>('movie/random', {
         params,
       });
@@ -73,7 +71,6 @@ function Random() {
     enabled: false,
     onSuccess: (movie) => {
       if (movie) {
-        console.log(movie.id);
         navigate(`/movies/${movie.id}`);
       }
     },

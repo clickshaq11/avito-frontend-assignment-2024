@@ -17,7 +17,6 @@ function Login() {
       setError(true);
     } else {
       setError(false);
-      console.log('erer');
       login();
       navigate('/movies');
     }
