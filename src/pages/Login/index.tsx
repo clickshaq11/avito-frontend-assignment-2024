@@ -1,21 +1,24 @@
 import { useId, useState } from 'react';
-import styles from './styles.module.css';
 import { useNavigate } from 'react-router';
+import { getLoggedInData } from '@/utils/getLoggedInData';
+import styles from './styles.module.css';
 
 const hardcodedPasword = '123';
 
 function Login() {
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
+  const { login } = getLoggedInData();
   const navigate = useNavigate();
   const id = useId();
 
-  const login = () => {
+  const onLogin = () => {
     if (password !== hardcodedPasword) {
       setError(true);
     } else {
       setError(false);
-      localStorage.setItem('loggedin', 'true');
+      console.log('erer');
+      login();
       navigate('/movies');
     }
   };
@@ -29,10 +32,11 @@ function Login() {
           id={id}
           className={styles.input}
           value={password}
-          onChange={(e) => setPassword(() => e.target.value)}
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
         />
         {error && <span className={styles.error}>Неправильный пароль</span>}
-        <button onClick={login} className={styles.button}>
+        <button onClick={onLogin} className={styles.button}>
           Войти
         </button>
       </div>

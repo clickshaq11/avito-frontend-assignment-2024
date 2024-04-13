@@ -2,13 +2,14 @@ import { useQuery } from 'react-query';
 import { useSearchParams } from 'react-router-dom';
 import { useDebounce } from '@/hooks/useDebounce';
 import { Filters } from './components/Filters';
-import { axios, axiosV1 } from '@/config/api';
+import { axios } from '@/config/api';
 import ReplayIcon from '@mui/icons-material/Replay';
 import CircularProgress from '@mui/material/CircularProgress';
 import { MovieBlock } from '@/components/MovieBlock';
 import type { GetMoviesResponse, SearchParams } from '@/types/search';
-import type { PossibleCountriesResponse } from '@/types/fields';
 import styles from './styles.module.css';
+import { FilterContextProvider } from './components/FilterContext';
+import { useGetCountries } from '../Random/hooks/GetCountries';
 
 const defaultSearchParamsValue: Record<SearchParams, string> = {
   query: '',
@@ -86,19 +87,7 @@ function Movies() {
     isSuccess: isPossibleCountriesSuccess,
     refetch: refetchPossibleCountries,
     isError: isPossibleCountriesError,
-  } = useQuery<PossibleCountriesResponse>({
-    queryFn: async ({ signal }) => {
-      const { data } = await axiosV1.get<PossibleCountriesResponse>(
-        'movie/possible-values-by-field?field=countries.name',
-        {
-          signal,
-        }
-      );
-      return data;
-    },
-    queryKey: ['countries'],
-    cacheTime: Infinity,
-  });
+  } = useGetCountries();
 
   const refetch = () => {
     refetchMoviesQuery();
@@ -123,12 +112,17 @@ function Movies() {
 
   return (
     <>
-      <Filters
-        totalPages={moviesData?.pages || 1}
-        searchParams={searchParams}
-        updateSearchParams={updateSearchParams}
-        countriesPossibleValues={countriesPossibleValues}
-      />
+      <FilterContextProvider
+        value={{
+          updateSearchParams,
+          searchParams,
+        }}
+      >
+        <Filters
+          totalPages={moviesData?.pages || 1}
+          countriesPossibleValues={countriesPossibleValues}
+        />
+      </FilterContextProvider>
       {isGetMoviesSuccess ? (
         <div className={styles.grid}>
           {noMoviesFound ? (

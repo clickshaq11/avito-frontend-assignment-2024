@@ -31,6 +31,7 @@ type SimilarMovie = {
 };
 
 type GetMovieByIdResponse = {
+  id: number;
   name: string;
   description: string;
   rating: {

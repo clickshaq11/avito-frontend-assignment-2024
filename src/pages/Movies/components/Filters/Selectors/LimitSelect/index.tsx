@@ -3,13 +3,10 @@ import { MenuItem, Select } from '@mui/material';
 import { Input } from '@/components/Input';
 import styles from '../../styles.module.css';
 import { FiltersProps } from '../..';
+import { useFilters } from '../../../FilterContext';
 
-type LimitSelectProps = Pick<
-  FiltersProps,
-  'searchParams' | 'updateSearchParams'
->;
-
-function LimitSelect({ searchParams, updateSearchParams }: LimitSelectProps) {
+function LimitSelect() {
+  const { searchParams, updateSearchParams } = useFilters();
   const id = useId();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {

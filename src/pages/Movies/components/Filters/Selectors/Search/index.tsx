@@ -1,14 +1,11 @@
 import { InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { FiltersProps } from '../..';
+import { useFilters } from '@/pages/Movies/components/FilterContext';
 import styles from '../../styles.module.css';
 
-type SearchSelectProps = Pick<
-  FiltersProps,
-  'searchParams' | 'updateSearchParams'
->;
+function Search() {
+  const { searchParams, updateSearchParams } = useFilters();
 
-function Search({ searchParams, updateSearchParams }: SearchSelectProps) {
   return (
     <TextField
       value={searchParams.get('query')}
