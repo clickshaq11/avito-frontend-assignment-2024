@@ -1,20 +1,16 @@
+import { useContext } from 'react';
 import { Pagination as MuiPagination, PaginationItem } from '@mui/material';
 import type { PaginationProps as MuiPaginationProps } from '@mui/material';
-import { FiltersProps } from '@/pages/Movies/components/Filters';
-
-type PaginationProps = MuiPaginationProps &
-  Pick<FiltersProps, 'searchParams' | 'updateSearchParams'>;
+import { useFilters } from '@/pages/Movies/components/FilterContext';
 
 const defaultStyles: MuiPaginationProps['sx'] = {
   color: 'var(--bg-color)',
   fontSize: 16,
 };
 
-function Pagination({
-  count,
-  searchParams,
-  updateSearchParams,
-}: PaginationProps) {
+function Pagination({ count }: MuiPaginationProps) {
+  const { searchParams, updateSearchParams } = useFilters();
+
   return (
     <MuiPagination
       sx={defaultStyles}

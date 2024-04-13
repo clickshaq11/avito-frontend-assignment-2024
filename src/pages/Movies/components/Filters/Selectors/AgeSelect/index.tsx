@@ -1,15 +1,15 @@
 import { useId } from 'react';
+import { useFilters } from '../../../FilterContext';
 import { MenuItem, Select } from '@mui/material';
 import { AGE_SELECT } from '@/utils/generateAgeSelect';
 import { Input } from '@/components/Input';
 import { Switch } from '@/components/Switch';
 import styles from '../../styles.module.css';
-import type { FiltersProps } from '../..';
 
-type AgeSelectProps = Pick<FiltersProps, 'searchParams' | 'updateSearchParams'>;
-
-function AgeSelect({ searchParams, updateSearchParams }: AgeSelectProps) {
+function AgeSelect() {
+  const { searchParams, updateSearchParams } = useFilters();
   const id = useId();
+
   return (
     <div className={styles.label_container}>
       <label htmlFor={id} className={styles.label}>

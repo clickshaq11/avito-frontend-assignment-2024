@@ -4,6 +4,8 @@
 
 ## Запуск
 
+Замените \<TOKEN\> на токен
+
 ### Локально
 
 ```bash
@@ -14,8 +16,8 @@ token=<TOKEN> npm run start
 ### Docker
 
 ```bash
-docker build -t frontend-assignment .
-docker run -dp 127.0.0.1:80 frontend-assignment
+docker build -t frontend-assignment --build-arg TOKEN=<TOKEN> .
+docker run -dp 7070:80 frontend-assignment
 ```
 
 ## Выполненные функциональные требования
@@ -69,3 +71,14 @@ docker run -dp 127.0.0.1:80 frontend-assignment
 
 - постеры, отображение которых реализовано в виде «карусели»
   (постер в апи приходит только один, я его рендерю на странице вначале)
+
+## Список отправляемых запросов
+
+### https://api.kinopoisk.dev/v1.4/
+
+- GET /movies с параметрами query, page, limit, countries.name, ageRating, year - поиск фильмов
+- GET /movie/possible-values-by-field?field=countries.name - доступные страны
+- GET /person с параметрами page, limit, movies.id, profession.value - актеры фильма
+- GET /season с параметрами page, limit, movieId - сезоны и серии сериала (при наличии)
+- GET /review с параметрами page, limit, movieId - отзывы на фильм
+- GET /movies/:id - конкретный фильм (основная информация)

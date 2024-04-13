@@ -4,53 +4,25 @@ import { YearSelect } from './Selectors/YearSelect';
 import { CountrySelect } from './Selectors/CountrySelect';
 import { LimitSelect } from './Selectors/LimitSelect';
 import { Search } from './Selectors/Search';
-import type { SearchParams } from '@/types/search';
 import type { PossibleCountriesResponse } from '@/types/fields';
 import styles from './styles.module.css';
 
 type FiltersProps = {
-  searchParams: URLSearchParams;
-  updateSearchParams: (param: SearchParams, value: string) => void;
   countriesPossibleValues: PossibleCountriesResponse;
   totalPages: number;
 };
 
-function Filters({
-  searchParams,
-  updateSearchParams,
-  countriesPossibleValues,
-  totalPages,
-}: FiltersProps) {
+function Filters({ countriesPossibleValues, totalPages }: FiltersProps) {
   return (
     <div className={styles.controls}>
-      <Search
-        searchParams={searchParams}
-        updateSearchParams={updateSearchParams}
-      />
+      <Search />
       <div className={styles.filters_container}>
-        <LimitSelect
-          searchParams={searchParams}
-          updateSearchParams={updateSearchParams}
-        />
-        <YearSelect
-          searchParams={searchParams}
-          updateSearchParams={updateSearchParams}
-        />
-        <AgeSelect
-          searchParams={searchParams}
-          updateSearchParams={updateSearchParams}
-        />
-        <CountrySelect
-          searchParams={searchParams}
-          updateSearchParams={updateSearchParams}
-          countriesPossibleValues={countriesPossibleValues}
-        />
+        <LimitSelect />
+        <YearSelect />
+        <AgeSelect />
+        <CountrySelect countriesPossibleValues={countriesPossibleValues} />
       </div>
-      <Pagination
-        count={totalPages}
-        searchParams={searchParams}
-        updateSearchParams={updateSearchParams}
-      />
+      <Pagination count={totalPages} />
     </div>
   );
 }

@@ -46,7 +46,7 @@ function SimilarMovies({ similarMovies }: SimilarMoviesProps) {
         init="false"
       >
         {similarMovies.map(({ name, poster: { previewUrl }, id }) => (
-          <swiper-slide key={previewUrl} class={localStyles.movie} style={{}}>
+          <swiper-slide key={previewUrl} class={localStyles.movie}>
             <div className={localStyles.movie}>
               <div className={localStyles.heading}>
                 <span className={localStyles.title}>{name}</span>

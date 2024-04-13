@@ -1,18 +1,15 @@
 import { useId } from 'react';
+import { useFilters } from '../../../FilterContext';
 import { generateYearSelect } from '@/utils/generateYearSelect';
 import { MenuItem, Select } from '@mui/material';
 import { Input } from '@/components/Input';
 import { Switch } from '@/components/Switch';
-import type { FiltersProps } from '../..';
 import styles from '../../styles.module.css';
 
-type YearSelectProps = Pick<
-  FiltersProps,
-  'searchParams' | 'updateSearchParams'
->;
-
-function YearSelect({ searchParams, updateSearchParams }: YearSelectProps) {
+function YearSelect() {
+  const { searchParams, updateSearchParams } = useFilters();
   const id = useId();
+
   return (
     <div className={styles.label_container}>
       <label htmlFor={id} className={styles.label}>
